@@ -7,11 +7,22 @@ class MenuItem:
         self.price = price
         self.category = category.title()
         self.is_available = is_available
+    
+    def describe_item(self):
+        return f"{self.name}: ${self.price}"
 
 
 class Wines(MenuItem):
-    def __init__(self, name, price, category="wines", is_available=True):
-        super().__init__(name, price, category, is_available)
+    def __init__(self, name, price, colour, vintage, type, country, is_available=True):
+        super().__init__(name, price, category="Wines", is_available=is_available)
+        self.colour = colour.capitalize()
+        self.vintage = vintage
+        self.type = type.capitalize()
+        self.country = country.title()
+
+    def describe_item(self):
+        return f" - Colour:{self.colour}\n - Type: {self.type}\n - Country: {self.country}\n - Name: {self.name}\n - Vintage: {self.vintage}\n - Price: ${self.price}"
+
 
 
 class Restaurant:
@@ -85,72 +96,23 @@ class Restaurant:
     def extract_to_csv(self, filename="menu.csv"):
         data = []
         for item in self.menu:
-            data.append(
-                {
+            rows = {
                     "Name": item.name,
                     "Price": item.price,
                     "Category": item.category,
                     "Availability": item.is_available,
+                    "Colour": None,
+                    "Vintage": None,
+                    "Type": None,
+                    "Country": None
                 }
-            )
+            if item.category == "Wines":
+                rows["Colour"] = item.colour
+                rows["Vintage"] = item.vintage
+                rows["Type"] = item.type
+                rows["Country"] = item.country
+            
+            data.append(rows)
         df = pd.DataFrame(data)
         df.to_csv(filename, index=False)
         print(f"{filename} has been created\n")
-
-
-# Instances
-
-cheese_board = MenuItem("cheese board", 12, "appetizer")
-pizza_margarita = MenuItem("pizza margarita", 20, "Pizza")
-pasta_carbonara = MenuItem("pasta carbonara", 25, "Pasta")
-ribeye_steak = MenuItem("ribeye steak", 55, "main dish")
-cheesecake = MenuItem("cheesecake", 15, "dessert", is_available=False)
-saperavi = Wines("saperavi", 35)
-tsolikouri = Wines("tsolikouri", 27)
-whisky = MenuItem("whisky", 27, "alcoholic beverage", is_available=False)
-
-my_restaurant = Restaurant("Tbilisi")
-
-print("Adding items to the menu:\n")
-
-my_restaurant.add_menu_item(cheese_board)
-my_restaurant.add_menu_item(pizza_margarita)
-my_restaurant.add_menu_item(pasta_carbonara)
-my_restaurant.add_menu_item(ribeye_steak)
-my_restaurant.add_menu_item(cheesecake)
-my_restaurant.add_menu_item(saperavi)
-my_restaurant.add_menu_item(tsolikouri)
-my_restaurant.add_menu_item(whisky)
-
-
-# Print menu
-
-my_restaurant.print_whole_menu()
-
-# Print by category
-
-my_restaurant.print_by_category("main dish")
-
-# Remove menu item
-
-my_restaurant.remove_menu_item(pasta_carbonara)
-
-# Update price of ribeye steaak
-
-my_restaurant.update_price("ribeye steak", 70)
-
-# Calculate order price
-
-my_restaurant.calculate_order(
-    {
-        "whisky": 5,
-        "saperavi": 2,
-        "ribeye steak": 2,
-        "pizza margarita": 1,
-        "khachapuri": 1,
-    }
-)
-
-my_restaurant.extract_to_csv()
-df = pd.read_csv("menu.csv")
-print(df)
