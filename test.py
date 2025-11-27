@@ -27,6 +27,10 @@ def main():
     my_restaurant.add_menu_item(tsolikouri)
     my_restaurant.add_menu_item(whisky)
 
+    # Describe item
+
+    saperavi_description = saperavi.describe_item()
+    print(saperavi_description)
 
     # Print menu
 
