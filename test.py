@@ -1,69 +1,74 @@
 from restaurant import Restaurant, MenuItem, Wines
 import pandas as pd
 
+def main()
 
-# Instances
+    # Instances
 
-cheese_board = MenuItem("cheese board", 12, "appetizer")
-pizza_margarita = MenuItem("pizza margarita", 20, "Pizza")
-pasta_carbonara = MenuItem("pasta carbonara", 25, "Pasta")
-ribeye_steak = MenuItem("ribeye steak", 55, "main dish")
-cheesecake = MenuItem("cheesecake", 15, "dessert", is_available=False)
-saperavi = Wines("saperavi", 35, "Red", "2021", "Dry", "Georgia")
-tsolikouri = Wines("tsolikouri", 27, "White", "2024", "Semi dry", "Georgia")
-whisky = MenuItem("whisky", 27, "alcoholic beverage", is_available=False)
+    cheese_board = MenuItem("cheese board", 12, "appetizer")
+    pizza_margarita = MenuItem("pizza margarita", 20, "Pizza")
+    pasta_carbonara = MenuItem("pasta carbonara", 25, "Pasta")
+    ribeye_steak = MenuItem("ribeye steak", 55, "main dish")
+    cheesecake = MenuItem("cheesecake", 15, "dessert", is_available=False)
+    saperavi = Wines("saperavi", 35, "Red", "2021", "Dry", "Georgia")
+    tsolikouri = Wines("tsolikouri", 27, "White", "2024", "Semi dry", "Georgia")
+    whisky = MenuItem("whisky", 27, "alcoholic beverage", is_available=False)
 
-my_restaurant = Restaurant("Tbilisi")
+    my_restaurant = Restaurant("Tbilisi")
 
-print("Adding items to the menu:\n")
+    print("Adding items to the menu:\n")
 
-my_restaurant.add_menu_item(cheese_board)
-my_restaurant.add_menu_item(pizza_margarita)
-my_restaurant.add_menu_item(pasta_carbonara)
-my_restaurant.add_menu_item(ribeye_steak)
-my_restaurant.add_menu_item(cheesecake)
-my_restaurant.add_menu_item(saperavi)
-my_restaurant.add_menu_item(tsolikouri)
-my_restaurant.add_menu_item(whisky)
-
-
-# Print menu
-
-my_restaurant.print_whole_menu()
-
-# Print by category
-
-my_restaurant.print_by_category("main dish")
-
-# Remove menu item
-
-my_restaurant.remove_menu_item(pasta_carbonara)
-
-# Update price of ribeye steaak
-
-my_restaurant.update_price("ribeye steak", 70)
-
-# Calculate order price
-
-my_restaurant.calculate_order(
-    {
-        "whisky": 5,
-        "saperavi": 2,
-        "ribeye steak": 2,
-        "pizza margarita": 1,
-        "khachapuri": 1,
-    }
-)
-
-# Extract and read csv file
-my_restaurant.extract_to_csv()
-df = pd.read_csv("menu.csv")
-
-# Format floats into integers for vintage column
-
-df["Vintage"] = df["Vintage"].fillna(0)
-df["Vintage"] = df["Vintage"].astype(int)
-df["Vintage"] = df["Vintage"].replace(0, "Nan")
+    my_restaurant.add_menu_item(cheese_board)
+    my_restaurant.add_menu_item(pizza_margarita)
+    my_restaurant.add_menu_item(pasta_carbonara)
+    my_restaurant.add_menu_item(ribeye_steak)
+    my_restaurant.add_menu_item(cheesecake)
+    my_restaurant.add_menu_item(saperavi)
+    my_restaurant.add_menu_item(tsolikouri)
+    my_restaurant.add_menu_item(whisky)
 
 
-print(df)
+    # Print menu
+
+    my_restaurant.print_whole_menu()
+
+    # Print by category
+
+    my_restaurant.print_by_category("main dish")
+
+    # Remove menu item
+
+    my_restaurant.remove_menu_item(pasta_carbonara)
+
+    # Update price of ribeye steaak
+
+    my_restaurant.update_price("ribeye steak", 70)
+
+    # Calculate order price
+
+    my_restaurant.calculate_order(
+        {
+            "whisky": 5,
+            "saperavi": 2,
+            "ribeye steak": 2,
+            "pizza margarita": 1,
+            "khachapuri": 1,
+        }
+    )
+
+    # Extract and read csv file
+    my_restaurant.extract_to_csv()
+    df = pd.read_csv("menu.csv")
+
+    # Format floats into integers for vintage column
+
+    df["Vintage"] = df["Vintage"].fillna(0)
+    df["Vintage"] = df["Vintage"].astype(int)
+    df["Vintage"] = df["Vintage"].replace(0, "None")
+
+
+    print(df)
+
+if __name__ == "__main__":
+    main()
+
