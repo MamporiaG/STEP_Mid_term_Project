@@ -1,7 +1,7 @@
 from restaurant import Restaurant, MenuItem, Wines
 import pandas as pd
 
-def main()
+def main():
 
     # Instances
 
