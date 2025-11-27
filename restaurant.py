@@ -78,6 +78,16 @@ class Restaurant:
     def calculate_order(self, ordered_items):
         total_cost = 0
         for k, v in ordered_items.items():
+
+            try:
+                v = int(v)
+                if v < 0:
+                    print("Quantity of items cannot be negative.")
+                    continue
+            except (ValueError, TypeError):
+                print("Invalid quantity. Please, enter a correct order.")
+                continue
+
             available_order = [
                 item for item in self.menu if k.lower() == item.name.lower()
             ]
