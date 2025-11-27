@@ -100,7 +100,8 @@ class Restaurant:
                     print(f"{k.title()} isn't available at the moment")
             else:
                 print(f"{k.title()} isn't on the menu")
-        print(f"Total cost of the order is ${total_cost * (1 + VAT):.2f}")
+            grand_total = total_cost * (1 + VAT)
+        return grand_total
 
     def extract_to_csv(self, filename="menu.csv"):
         data = []
