@@ -1,5 +1,5 @@
 import pandas as pd
-
+VAT = 0.18
 
 class MenuItem:
     def __init__(self, name, price, category, is_available=True):
@@ -77,7 +77,6 @@ class Restaurant:
 
     def calculate_order(self, ordered_items):
         total_cost = 0
-        vat = 0.18
         for k, v in ordered_items.items():
             available_order = [
                 item for item in self.menu if k.lower() == item.name.lower()
@@ -91,7 +90,7 @@ class Restaurant:
                     print(f"{k.title()} isn't available at the moment")
             else:
                 print(f"{k.title()} isn't on the menu")
-        print(f"Total cost of the order is ${total_cost * (1 + vat):.2f}")
+        print(f"Total cost of the order is ${total_cost * (1 + VAT):.2f}")
 
     def extract_to_csv(self, filename="menu.csv"):
         data = []
