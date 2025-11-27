@@ -46,7 +46,7 @@ def main():
 
     # Calculate order price
 
-    my_restaurant.calculate_order(
+    order_price = my_restaurant.calculate_order(
         {
             "whisky": 5,
             "saperavi": 2,
@@ -55,6 +55,8 @@ def main():
             "khachapuri": 1,
         }
     )
+
+    print(f"\n Total price of the order is: ${order_price}")
 
     # Extract and read csv file
     my_restaurant.extract_to_csv()
