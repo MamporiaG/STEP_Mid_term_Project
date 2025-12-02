@@ -65,14 +65,6 @@ def main():
     # Extract and read csv file
     my_restaurant.extract_to_csv()
     df = pd.read_csv("menu.csv")
-
-    # Format floats into integers for vintage column
-
-    df["Vintage"] = df["Vintage"].fillna(0)
-    df["Vintage"] = df["Vintage"].astype(int)
-    df["Vintage"] = df["Vintage"].replace(0, "None")
-
-
     print(df)
 
 if __name__ == "__main__":
