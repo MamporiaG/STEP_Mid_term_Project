@@ -10,8 +10,8 @@ def main():
     pasta_carbonara = MenuItem("pasta carbonara", 25, "Pasta")
     ribeye_steak = MenuItem("ribeye steak", 55, "main dish")
     cheesecake = MenuItem("cheesecake", 15, "dessert", is_available=False)
-    saperavi = Wines("saperavi", 35, "Red", "2021", "Dry", "Georgia")
-    tsolikouri = Wines("tsolikouri", 27, "White", "2024", "Semi dry", "Georgia")
+    saperavi = Wines("saperavi", 35, "Red", 2021, "Dry", "Georgia")
+    tsolikouri = Wines("tsolikouri", 27, "White", 2024, "Semi dry", "Georgia")
     whisky = MenuItem("whisky", 27, "alcoholic beverage", is_available=False)
 
     my_restaurant = Restaurant("Tbilisi")
