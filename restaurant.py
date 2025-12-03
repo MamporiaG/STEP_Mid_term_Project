@@ -31,6 +31,11 @@ class Restaurant:
         self.menu = []
 
     def add_menu_item(self, menu_item):
+        for item in self.menu:
+            if item.name.lower() == menu_item.name.lower():
+                print(f"{menu_item.name} already is in the menu")
+                return
+            
         self.menu.append(menu_item)
         print(f"{menu_item.name} has been added to the menu")
 
@@ -100,7 +105,7 @@ class Restaurant:
                     print(f"{k.title()} isn't available at the moment")
             else:
                 print(f"{k.title()} isn't on the menu")
-            grand_total = total_cost * (1 + VAT)
+        grand_total = total_cost * (1 + VAT)
         return grand_total
 
     def extract_to_csv(self, filename="menu.csv"):
