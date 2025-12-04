@@ -1,8 +1,8 @@
 Name,Price,Category,Availability,Colour,Vintage,Type,Country
-Cheese Board,12,Appetizer,True,N/A,None,N/A,N/A
-Pizza Margarita,20,Pizza,True,N/A,None,N/A,N/A
-Ribeye Steak,70,Main Dish,True,N/A,None,N/A,N/A
-Cheesecake,15,Dessert,False,N/A,None,N/A,N/A
+Cheese Board,12,Appetizer,True,N/A,N/A,N/A,N/A
+Pizza Margarita,20,Pizza,True,N/A,N/A,N/A,N/A
+Ribeye Steak,70,Main Dish,True,N/A,N/A,N/A,N/A
+Cheesecake,15,Dessert,False,N/A,N/A,N/A,N/A
 Saperavi,35,Wines,True,Red,2021,Dry,Georgia
 Tsolikouri,27,Wines,True,White,2024,Semi dry,Georgia
-Whisky,27,Alcoholic Beverage,False,N/A,None,N/A,N/A
+Whisky,27,Alcoholic Beverage,False,N/A,N/A,N/A,N/A

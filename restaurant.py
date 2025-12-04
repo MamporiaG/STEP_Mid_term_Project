@@ -130,7 +130,7 @@ class Restaurant:
             
             data.append(rows)
         df = pd.DataFrame(data)
-        df["Vintage"] = df["Vintage"].fillna(0).astype(int).replace(0, "None")
+        df["Vintage"] = df["Vintage"].fillna(0).astype(int).replace(0, "N/A")
         df[["Colour","Type","Country"]] = df[["Colour","Type","Country"]].fillna("N/A")
         df.to_csv(filename, index=False)
         print(f"{filename} has been created\n")
