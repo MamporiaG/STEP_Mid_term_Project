@@ -41,10 +41,11 @@ class Restaurant:
 
     def remove_menu_item(self, menu_item):
         for item in self.menu:
-            if item.name == menu_item.name:
+            if item.name.lower() == menu_item.name.lower():
                 self.menu.remove(item)
                 print(f"\nThe {menu_item.name} has been removed from the menu")
                 return
+            
         print(f"\n{menu_item.name} hasn't been found in the menu")
 
     def update_price(self, item_name, new_price):
