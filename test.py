@@ -29,6 +29,7 @@ def main():
 
     # Describe item
 
+    print("\n - Saperavi Description -\n")
     saperavi_description = saperavi.describe_item()
     print(saperavi_description)
 
@@ -48,6 +49,7 @@ def main():
 
     my_restaurant.update_price("ribeye steak", 70)
 
+
     # Calculate order price
 
     order_price = my_restaurant.calculate_order(
@@ -60,7 +62,7 @@ def main():
         }
     )
 
-    print(f"\n Total price of the order is: ${order_price}")
+    print(f"\n Total price of the order is: ${order_price}\n")
 
     # Extract and read csv file
     my_restaurant.extract_to_csv()
