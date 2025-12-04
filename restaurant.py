@@ -21,8 +21,14 @@ class Wines(MenuItem):
         self.country = country.title()
 
     def describe_item(self):
-        return f"\n - Name: {self.name}\n - Colour:{self.colour}\n - Type: {self.wine_type}\n - Country: {self.country}\n - Vintage: {self.vintage}\n - Price: ${self.price}"
-
+            return (
+        f" - Name: {self.name}\n"
+        f" - Colour: {self.colour}\n"
+        f" - Type: {self.wine_type}\n"
+        f" - Country: {self.country}\n"
+        f" - Vintage: {self.vintage}\n"
+        f" - Price: ${self.price}"
+    )
 
 
 class Restaurant:
