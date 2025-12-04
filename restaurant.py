@@ -13,15 +13,15 @@ class MenuItem:
 
 
 class Wines(MenuItem):
-    def __init__(self, name, price, colour, vintage, type, country, is_available=True):
+    def __init__(self, name, price, colour, vintage, wine_type, country, is_available=True):
         super().__init__(name, price, category="Wines", is_available=is_available)
         self.colour = colour.capitalize()
         self.vintage = vintage
-        self.type = type.capitalize()
+        self.wine_type = wine_type.capitalize()
         self.country = country.title()
 
     def describe_item(self):
-        return f"\n - Name: {self.name}\n - Colour:{self.colour}\n - Type: {self.type}\n - Country: {self.country}\n - Vintage: {self.vintage}\n - Price: ${self.price}"
+        return f"\n - Name: {self.name}\n - Colour:{self.colour}\n - Type: {self.wine_type}\n - Country: {self.country}\n - Vintage: {self.vintage}\n - Price: ${self.price}"
 
 
 
@@ -119,18 +119,18 @@ class Restaurant:
                     "Availability": item.is_available,
                     "Colour": None,
                     "Vintage": None,
-                    "Type": None,
+                    "Wine Type": None,
                     "Country": None
                 }
             if item.category == "Wines":
                 rows["Colour"] = item.colour
                 rows["Vintage"] = item.vintage
-                rows["Type"] = item.type
+                rows["Wine Type"] = item.wine_type
                 rows["Country"] = item.country
             
             data.append(rows)
         df = pd.DataFrame(data)
         df["Vintage"] = df["Vintage"].fillna(0).astype(int).replace(0, "N/A")
-        df[["Colour","Type","Country"]] = df[["Colour","Type","Country"]].fillna("N/A")
+        df[["Colour","Wine Type","Country"]] = df[["Colour","Wine Type","Country"]].fillna("N/A")
         df.to_csv(filename, index=False)
         print(f"{filename} has been created\n")

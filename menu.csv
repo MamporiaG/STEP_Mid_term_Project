@@ -1,4 +1,4 @@
-Name,Price,Category,Availability,Colour,Vintage,Type,Country
+Name,Price,Category,Availability,Colour,Vintage,Wine Type,Country
 Cheese Board,12,Appetizer,True,N/A,N/A,N/A,N/A
 Pizza Margarita,20,Pizza,True,N/A,N/A,N/A,N/A
 Ribeye Steak,70,Main Dish,True,N/A,N/A,N/A,N/A
