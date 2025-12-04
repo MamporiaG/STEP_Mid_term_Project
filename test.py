@@ -55,6 +55,8 @@ def main():
     order_price = my_restaurant.calculate_order(
         {
             "whisky": 5,
+            "tsolikouri": "two",
+            "pizza_margarita": -10,
             "saperavi": 2,
             "ribeye steak": 2,
             "pizza margarita": 1,

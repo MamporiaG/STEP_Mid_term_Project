@@ -94,10 +94,10 @@ class Restaurant:
             try:
                 v = int(v)
                 if v < 0:
-                    print("Quantity of items cannot be negative.")
+                    print(f"Quantity of {k} cannot be negative.")
                     continue
             except (ValueError, TypeError):
-                print("Invalid quantity. Please, enter a correct order.")
+                print(f"Invalid quantity for {k}. Please, enter a correct order.")
                 continue
 
             available_order = [
